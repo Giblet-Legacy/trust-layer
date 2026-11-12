@@ -9,8 +9,17 @@ Function:
     consumes P10 Weight for the underlying decay math.
 
 Layer:    P11 — Trust
-Depends:  P10 Weight (weight.py)
+Depends:  P10 Weight (weight.py; trust_v2.py needs weight_v2.py, P10 v1.1.0)
 Consumed: P14 Leighton Engine, P15 HAL
 Licence:  MSL-1.0
 Author:   James Gilbert (Giblets Forge)
-Status:   0.0.0-dev (in build, pre-freeze)
+Status:   1.1.0 (v1 frozen at 1.0.0; V2 hardening layer added)
+
+Files:
+    trust.py      — v1.0.0, frozen. Latest observation wins. (SPEC.md)
+    trust_v2.py   — V2 layer: weighted fusion, confidence,
+                    explain_lambda. (SPEC_V2.md)
+    conftest.py   — puts ../weight-layer on sys.path for pytest.
+
+Expects weight-layer checked out as a sibling directory
+(../weight-layer). Run `pytest -q` from any directory.
